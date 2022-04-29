@@ -1,5 +1,6 @@
 import retentioneering
 import streamlit as st
+import matplotlib.pyplot as plt
 from google.oauth2 import service_account
 from google.cloud import bigquery
 credentials = service_account.Credentials.from_service_account_info(
@@ -59,3 +60,4 @@ retentioneering.config.update({
 data.rete.plot_graph(norm_type=None,
                      weight_col=None,
                      thresh=250)
+plt.show()
