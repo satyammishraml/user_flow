@@ -66,5 +66,5 @@ plt.show()
 from os import listdir
 from os.path import isfile, join
 onlyfiles = [f for f in listdir('experiments') if isfile(join('experiments', f))]
-print(onlyfiles)
+st.write(onlyfiles)
 #st.markdown(html_string, unsafe_allow_html=True)
