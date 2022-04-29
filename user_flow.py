@@ -63,8 +63,7 @@ data.rete.plot_graph(norm_type=None,
 plt.show()
 
 
-html_string = "
-<html lang="en">
+html_string ="""<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Graph Editor</title>
@@ -373,6 +372,6 @@ html_string = "
   </script>
 </body>
 </html>
-"
+"""
 
 st.markdown(html_string, unsafe_allow_html=True)
