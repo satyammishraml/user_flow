@@ -14,7 +14,7 @@ import pandas as pd
 # load sample data
 
 def make_event_query(date):
-    query = """SELECT event, timestamp, user_id, entity_type FROM `safalta-294406.sf_dataset.events_views` 
+    query = """SELECT  timestamp, user_id, entity_type FROM `safalta-294406.sf_dataset.events_views` 
                     WHERE DATE(timestamp)='{}'
                     """.format(date)
     return query
@@ -29,7 +29,7 @@ def run_query(query):
 
 retentioneering.config.update({
     'user_col': 'user_id',
-    'event_col': 'event',
+    'event_col': 'entity_type',
     'event_time_col': 'timestamp',
 })
 
