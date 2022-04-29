@@ -1,0 +1,4 @@
+pandas==1.2.4
+protobuf==3.20.1
+retentioneering==2.0.3.3
+streamlit==1.8.1
