@@ -14,7 +14,7 @@ import pandas as pd
 # load sample data
 
 def make_event_query(date):
-    query = """SELECT url,timestamp, entity_type FROM `safalta-294406.sf_dataset.events_views` 
+    query = """SELECT event, timestamp, user_id, entity_type FROM `safalta-294406.sf_dataset.events_views` 
                     WHERE DATE(timestamp)='{}'
                     """.format(date)
     return query
