@@ -33,7 +33,7 @@ retentioneering.config.update({
     'event_time_col': 'timestamp',
 })
 
-user_id = st.text_input('Enter User ID', 'Enter User ID')
+#user_id = st.text_input('Enter User ID', 'Enter User ID')
 today = datetime.today()
 tomorrow = today + timedelta(days=10)
 start_date = st.date_input('Start date', today)
@@ -49,6 +49,7 @@ df = run_query(events_views_query)
 short_df = df[df.entity_type.isin(['course', 'page', 'app-home', 'Safalta', 'blog'])]
 data = short_df[['user_id', 'entity_type', 'timestamp']]
 
+st.write(short_df)
 retentioneering.config.update({
     'user_col': 'user_id',
     'event_col': 'entity_type',
