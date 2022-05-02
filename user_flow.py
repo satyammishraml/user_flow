@@ -50,7 +50,7 @@ with st.form(key='my_form'):
         short_df = df[df.entity_type.isin(entity_types)]
         data = short_df[['user_id', 'entity_type', 'timestamp']]
 
-        st.write(short_df)
+        #st.write(short_df)
         retentioneering.config.update({
             'user_col': 'user_id',
             'event_col': 'entity_type',
