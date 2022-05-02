@@ -1,8 +1,11 @@
 import retentioneering
+import glob
 import streamlit as st
 import matplotlib.pyplot as plt
 from google.oauth2 import service_account
 from google.cloud import bigquery
+import streamlit.components.v1 as components
+
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"]
 )
@@ -64,11 +67,9 @@ with st.form(key='my_form'):
 
 
 
-        import glob
-        html_file = glob.glob('experiments/*.html', recursive=True)[-1]
-        import streamlit.components.v1 as components
-
-        HtmlFile = open(html_file, 'r', encoding='utf-8')
+        files = glob.glob('experiments/*.html', recursive=True)
+        max_file = max(files, key=os.path.getctime)
+        HtmlFile = open(max_file, 'r', encoding='utf-8')
         source_code = HtmlFile.read() 
         components.html(source_code, height = 1000)
 
