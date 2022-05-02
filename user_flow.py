@@ -14,10 +14,10 @@ import pandas as pd
 
 # load sample data
 
-def make_event_query(date):
+def make_event_query(start_date, end_date):
     query = """SELECT  timestamp, user_id, entity_type FROM `safalta-294406.sf_dataset.events_views` 
-                    WHERE DATE(timestamp)='{}'
-                    """.format(date)
+                    WHERE DATE(timestamp)>='{}' and DATE(timestamp)<='{}'
+                    """.format(start_date, end_date)
     return query
 
 
@@ -31,7 +31,7 @@ def run_query(query):
 with st.form(key='my_form'):
     #user_id = st.text_input('Enter User ID', 'Enter User ID')
     today = datetime.today()
-    tomorrow = today + timedelta(days=10)
+    tomorrow = datetime.today()
     start_date = st.date_input('Start date', today)
     end_date = st.date_input('End date', tomorrow)
     if start_date > end_date:
@@ -71,6 +71,4 @@ with st.form(key='my_form'):
         HtmlFile = open(html_file, 'r', encoding='utf-8')
         source_code = HtmlFile.read() 
         components.html(source_code, height = 1000)
-
-
 
