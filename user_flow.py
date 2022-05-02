@@ -49,7 +49,7 @@ df = run_query(events_views_query)
 
 
 n = st.text_input('Enter Top n entities', 6)
-entity_types = df.entity_type.value_counts().reset_index()['index'][:n].tolist()
+entity_types = df.entity_type.value_counts().reset_index()['index'][:int(n)].tolist()
 short_df = df[df.entity_type.isin(entity_types)]
 data = short_df[['user_id', 'entity_type', 'timestamp']]
 
