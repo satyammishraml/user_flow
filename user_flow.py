@@ -42,7 +42,7 @@ with st.form(key='my_form'):
     if submit_button:
         start_date = start_date.strftime("%Y-%m-%d")
         end_date = end_date.strftime("%Y-%m-%d")
-        events_views_query = make_event_query(start_date)
+        events_views_query = make_event_query(start_date, end_date)
         df = run_query(events_views_query)
 
         
